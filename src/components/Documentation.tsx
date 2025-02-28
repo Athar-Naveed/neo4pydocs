@@ -1,6 +1,7 @@
 import CodeBlock from "@/components/CodeBlock";
 import { stateStore } from "@/store/zuStore";
 import { FileText } from "lucide-react";
+
 // Example documentation sections
 const documentationSections = {
   introduction: {
@@ -54,167 +55,167 @@ def find_connections(graph, person1_name, person2_name, max_depth=3):
 `,
   },
 };
+
 const Documentation = () => {
   const { activeSection } = stateStore();
+  
   return (
-    <>
-      {/* Documentation content */}
-      <div className="lg:col-span-3 bg-white rounded-xl p-8 border border-gray-100 shadow-sm">
-        {activeSection === "introduction" && (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              {documentationSections.introduction.title}
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              {documentationSections.introduction.content}
-            </p>
-            <CodeBlock
-              code={documentationSections.introduction.code}
-              language="python"
-              title="Getting started with Neo4py"
-            />
-            <div className="mt-8">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Key Features
+    <div className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm">
+      {activeSection === "introduction" && (
+        <div className="space-y-6">
+          <h2 className="text-3xl font-bold text-gray-900">
+            {documentationSections.introduction.title}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {documentationSections.introduction.content}
+          </p>
+          <CodeBlock
+            code={documentationSections.introduction.code}
+            language="python"
+            title="Getting started with Neo4py"
+          />
+          <div className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              Key Features
+            </h3>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <li>Simple and intuitive Pythonic API</li>
+              <li>Smart connection pooling for efficient database usage</li>
+              <li>Powerful query builder with type hints</li>
+              <li>Automatic object mapping (OGM)</li>
+              <li>Comprehensive transaction support</li>
+              <li>Robust error handling</li>
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {activeSection === "api-reference" && (
+        <div className="space-y-6">
+          <h2 className="text-3xl font-bold text-gray-900">
+            {documentationSections.apiReference.title}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {documentationSections.apiReference.content}
+          </p>
+          <CodeBlock
+            code={documentationSections.apiReference.code}
+            language="python"
+            title="Neo4py Core Components"
+          />
+          <div className="mt-8 space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Graph Class
               </h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li>Simple and intuitive Pythonic API</li>
-                <li>Smart connection pooling for efficient database usage</li>
-                <li>Powerful query builder with type hints</li>
-                <li>Automatic object mapping (OGM)</li>
-                <li>Comprehensive transaction support</li>
-                <li>Robust error handling</li>
-              </ul>
-            </div>
-          </div>
-        )}
-
-        {activeSection === "api-reference" && (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              {documentationSections.apiReference.title}
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              {documentationSections.apiReference.content}
-            </p>
-            <CodeBlock
-              code={documentationSections.apiReference.code}
-              language="python"
-              title="Neo4py Core Components"
-            />
-            <div className="mt-8 space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  Graph Class
-                </h3>
-                <p className="text-gray-700 mb-2">
-                  The main entry point for Neo4py. Manages connections and
-                  provides methods for interacting with the database.
-                </p>
-                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                  <code className="text-sm text-gray-800 font-mono">
-                    Graph(uri, auth=None, **config)
-                  </code>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  Node Class
-                </h3>
-                <p className="text-gray-700 mb-2">
-                  Represents a node in the graph with labels and properties.
-                </p>
-                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                  <code className="text-sm text-gray-800 font-mono">
-                    Node(*labels, **properties)
-                  </code>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  Relationship Class
-                </h3>
-                <p className="text-gray-700 mb-2">
-                  Represents a relationship between nodes with a type and
-                  properties.
-                </p>
-                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                  <code className="text-sm text-gray-800 font-mono">
-                    Relationship(start_node, type, end_node, **properties)
-                  </code>
-                </div>
+              <p className="text-gray-700 mb-2">
+                The main entry point for Neo4py. Manages connections and
+                provides methods for interacting with the database.
+              </p>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <code className="text-sm text-gray-800 font-mono">
+                  Graph(uri, auth=None, **config)
+                </code>
               </div>
             </div>
-          </div>
-        )}
 
-        {activeSection === "guides" && (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              {documentationSections.guides.title}
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              {documentationSections.guides.content}
-            </p>
-            <CodeBlock
-              code={documentationSections.guides.code}
-              language="python"
-              title="Finding connections between people"
-            />
-            <div className="mt-8">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Popular Guides
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Node Class
               </h3>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-3 bg-neo4py-super-light rounded-lg hover:bg-neo4py-light/20 transition-colors"
-                  >
-                    <FileText className="h-5 w-5 text-neo4py mr-3" />
-                    <span className="font-medium text-gray-800">
-                      Getting Started with Neo4py
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-3 bg-neo4py-super-light rounded-lg hover:bg-neo4py-light/20 transition-colors"
-                  >
-                    <FileText className="h-5 w-5 text-neo4py mr-3" />
-                    <span className="font-medium text-gray-800">
-                      Building a Recommendation Engine
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-3 bg-neo4py-super-light rounded-lg hover:bg-neo4py-light/20 transition-colors"
-                  >
-                    <FileText className="h-5 w-5 text-neo4py mr-3" />
-                    <span className="font-medium text-gray-800">
-                      Working with Large Datasets
-                    </span>
-                  </a>
-                </li>
-              </ul>
+              <p className="text-gray-700 mb-2">
+                Represents a node in the graph with labels and properties.
+              </p>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <code className="text-sm text-gray-800 font-mono">
+                  Node(*labels, **properties)
+                </code>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                Relationship Class
+              </h3>
+              <p className="text-gray-700 mb-2">
+                Represents a relationship between nodes with a type and
+                properties.
+              </p>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <code className="text-sm text-gray-800 font-mono">
+                  Relationship(start_node, type, end_node, **properties)
+                </code>
+              </div>
             </div>
           </div>
-        )}
+        </div>
+      )}
 
-        {activeSection === "query-building" && (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">Query Building</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Neo4py provides a powerful query builder that makes it easy to
-              construct complex Cypher queries.
-            </p>
-            <CodeBlock
-              code={`from neo4py import Graph, QueryBuilder
+      {activeSection === "guides" && (
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-900">
+            {documentationSections.guides.title}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {documentationSections.guides.content}
+          </p>
+          <CodeBlock
+            code={documentationSections.guides.code}
+            language="python"
+            title="Finding connections between people"
+          />
+          <div className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              Popular Guides
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  className="flex items-center p-3 bg-neo4py-super-light rounded-lg hover:bg-neo4py-light/20 transition-colors"
+                >
+                  <FileText className="h-5 w-5 text-neo4py mr-3" />
+                  <span className="font-medium text-gray-800">
+                    Getting Started with Neo4py
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="flex items-center p-3 bg-neo4py-super-light rounded-lg hover:bg-neo4py-light/20 transition-colors"
+                >
+                  <FileText className="h-5 w-5 text-neo4py mr-3" />
+                  <span className="font-medium text-gray-800">
+                    Building a Recommendation Engine
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="flex items-center p-3 bg-neo4py-super-light rounded-lg hover:bg-neo4py-light/20 transition-colors"
+                >
+                  <FileText className="h-5 w-5 text-neo4py mr-3" />
+                  <span className="font-medium text-gray-800">
+                    Working with Large Datasets
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {activeSection === "query-building" && (
+        <div className="space-y-6">
+          <h2 className="text-3xl font-bold text-gray-900">Query Building</h2>
+          <p className="text-gray-700 leading-relaxed">
+            Neo4py provides a powerful query builder that makes it easy to
+            construct complex Cypher queries.
+          </p>
+          <CodeBlock
+            code={`from neo4py import Graph, QueryBuilder
 
 # Create a graph instance
 graph = Graph("bolt://localhost:7687", auth=("neo4j", "password"))
@@ -234,23 +235,23 @@ result = graph.run(query, min_age=30)
 for record in result:
     print(f"{record['name']}: {record['age']}")
 `}
-              language="python"
-              title="Using the Query Builder"
-            />
-          </div>
-        )}
+            language="python"
+            title="Using the Query Builder"
+          />
+        </div>
+      )}
 
-        {activeSection === "data-modeling" && (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              Data Modeling with Neo4py
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Learn best practices for modeling your domain as a graph using
-              Neo4py's object-graph mapping capabilities.
-            </p>
-            <CodeBlock
-              code={`from neo4py import GraphObject, Property, RelatedTo, RelatedFrom
+      {activeSection === "data-modeling" && (
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-900">
+            Data Modeling with Neo4py
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Learn best practices for modeling your domain as a graph using
+            Neo4py's object-graph mapping capabilities.
+          </p>
+          <CodeBlock
+            code={`from neo4py import GraphObject, Property, RelatedTo, RelatedFrom
 
 class Person(GraphObject):
     __primarylabel__ = "Person"
@@ -282,32 +283,32 @@ bob = Person(name="Bob", age=28, email="bob@example.com").save()
 alice.friends.add(bob)
 alice.save()
 `}
-              language="python"
-              title="Object-Graph Mapping Example"
-            />
-          </div>
-        )}
+            language="python"
+            title="Object-Graph Mapping Example"
+          />
+        </div>
+      )}
 
-        {activeSection === "troubleshooting" && (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              Troubleshooting
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Solutions to common issues you might encounter when working with
-              Neo4py.
+      {activeSection === "troubleshooting" && (
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-900">
+            Troubleshooting
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Solutions to common issues you might encounter when working with
+            Neo4py.
+          </p>
+
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+            <h3 className="text-lg font-medium text-amber-800 mb-2">
+              Connection Issues
+            </h3>
+            <p className="text-amber-700">
+              If you're having trouble connecting to your Neo4j database,
+              check your credentials and make sure the database is running.
             </p>
-
-            <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
-              <h3 className="text-lg font-medium text-amber-800 mb-2">
-                Connection Issues
-              </h3>
-              <p className="text-amber-700">
-                If you're having trouble connecting to your Neo4j database,
-                check your credentials and make sure the database is running.
-              </p>
-              <CodeBlock
-                code={`# Debug connection issues
+            <CodeBlock
+              code={`# Debug connection issues
 from neo4py import Graph
 
 try:
@@ -324,30 +325,29 @@ except Exception as e:
     print(f"Connection error: {e}")
     # Check Neo4j logs for more details
 `}
-                language="python"
-                title="Debugging Connection Issues"
-              />
-            </div>
-
-            <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mt-6">
-              <h3 className="text-lg font-medium text-blue-800 mb-2">
-                Performance Optimization
-              </h3>
-              <p className="text-blue-700">
-                If your queries are running slowly, consider using these
-                optimization techniques.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-blue-700 mt-2">
-                <li>Use parameterized queries to enable query caching</li>
-                <li>Create indexes on frequently queried properties</li>
-                <li>Limit the depth of relationship traversals</li>
-                <li>Use PROFILE and EXPLAIN to analyze query performance</li>
-              </ul>
-            </div>
+              language="python"
+              title="Debugging Connection Issues"
+            />
           </div>
-        )}
-      </div>
-    </>
+
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mt-6">
+            <h3 className="text-lg font-medium text-blue-800 mb-2">
+              Performance Optimization
+            </h3>
+            <p className="text-blue-700">
+              If your queries are running slowly, consider using these
+              optimization techniques.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-blue-700 mt-2">
+              <li>Use parameterized queries to enable query caching</li>
+              <li>Create indexes on frequently queried properties</li>
+              <li>Limit the depth of relationship traversals</li>
+              <li>Use PROFILE and EXPLAIN to analyze query performance</li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

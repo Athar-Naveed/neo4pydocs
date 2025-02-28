@@ -1,3 +1,4 @@
+
 import { stateStore } from "@/store/zuStore";
 import {
   FileText,
@@ -8,7 +9,6 @@ import {
   HelpCircle,
   ArrowUpRight,
 } from "lucide-react";
-import { useState } from "react";
 
 const documentationLinks = [
   {
@@ -54,70 +54,44 @@ const DocLinks = () => {
   const { activeSection, setActiveSection } = stateStore();
 
   return (
-    <section id="docs" className="py-20 relative overflow-hidden bg-white">
-      {/* Purple blob in the background */}
-      <div
-        className="gradient-blur h-[300px] w-[300px] top-[50px] left-[-150px]"
-        aria-hidden="true"
-      />
-
-      <div className="neo4py-container relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-neo4py-super-light border border-neo4py/20 text-neo4py-dark text-sm font-medium mb-4">
-            <span>Documentation</span>
-          </div>
-
-          <p className="text-lg text-muted-foreground">
-            Everything you need to know about Neo4py from basic concepts to
-            advanced techniques.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Documentation navigation */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-24 space-y-2">
-              {documentationLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className={`bg-white rounded-lg p-4 border hover:border-neo4py/20 transition-all duration-300 flex items-center gap-3 group ${
-                    activeSection === link.href.replace("#", "")
-                      ? "border-neo4py shadow-sm"
-                      : "border-gray-100"
-                  }`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setActiveSection(link.href.replace("#", ""));
-                  }}
-                >
-                  <div
-                    className={`${
-                      activeSection === link.href.replace("#", "")
-                        ? "text-neo4py"
-                        : "text-gray-500"
-                    }`}
-                  >
-                    {link.icon}
-                  </div>
-                  <div>
-                    <h3
-                      className={`text-base font-medium ${
-                        activeSection === link.href.replace("#", "")
-                          ? "text-neo4py"
-                          : "text-gray-700"
-                      }`}
-                    >
-                      {link.title}
-                    </h3>
-                  </div>
-                </a>
-              ))}
+    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+      <h2 className="text-xl font-bold text-gray-800 mb-4">Documentation</h2>
+      <p className="text-gray-600 mb-6">
+        Everything you need to know about Neo4py from basic concepts to advanced techniques.
+      </p>
+      
+      <div className="space-y-2">
+        {documentationLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.href}
+            className={`rounded-lg p-3 flex items-center gap-3 transition-all duration-200 ${
+              activeSection === link.href.replace("#", "")
+                ? "bg-neo4py-super-light border-neo4py text-neo4py"
+                : "hover:bg-gray-50 text-gray-700"
+            }`}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveSection(link.href.replace("#", ""));
+            }}
+          >
+            <div
+              className={activeSection === link.href.replace("#", "")
+                ? "text-neo4py"
+                : "text-gray-500"
+              }
+            >
+              {link.icon}
             </div>
-          </div>
-        </div>
+            <div>
+              <h3 className="text-base font-medium">
+                {link.title}
+              </h3>
+            </div>
+          </a>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
