@@ -1,5 +1,14 @@
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import Prism from 'prismjs';
+// Import Prism styles
+import 'prismjs/themes/prism-tomorrow.css';
+// Import languages
+import 'prismjs/components/prism-python';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-jsx';
 
 interface CodeBlockProps {
   code: string;
@@ -9,6 +18,13 @@ interface CodeBlockProps {
 
 const CodeBlock = ({ code, language = 'python', title }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
+  const codeRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (codeRef.current) {
+      Prism.highlightElement(codeRef.current);
+    }
+  }, [code, language]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(code);
@@ -32,7 +48,9 @@ const CodeBlock = ({ code, language = 'python', title }: CodeBlockProps) => {
         </div>
       )}
       <pre className={`p-4 text-sm overflow-x-auto ${!title ? 'pt-8' : ''}`}>
-        <code className="font-mono text-[#e0e0e0]">{code}</code>
+        <code ref={codeRef} className={`language-${language} font-mono`}>
+          {code}
+        </code>
       </pre>
     </div>
   );
