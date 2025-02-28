@@ -89,7 +89,7 @@ const QuickStart = () => {
 
             <div className="text-center mt-10">
               <a
-                href="#docs"
+                href="/docs"
                 className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors 
                   border border-neo4py hover:bg-neo4py hover:text-white text-neo4py"
               >

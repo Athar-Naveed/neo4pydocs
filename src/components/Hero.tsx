@@ -37,7 +37,7 @@ const Hero = () => {
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="#docs"
+              href="/docs"
               className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors 
                 border border-neo4py/20 bg-neo4py/10 hover:bg-neo4py/20 text-neo4py-dark w-full sm:w-auto"
             >

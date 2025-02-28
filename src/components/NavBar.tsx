@@ -51,7 +51,7 @@ const NavBar = () => {
             Quick Start
           </a>
           <a
-            href="#docs"
+            href="/docs"
             className="text-sm font-medium text-gray-600 hover:text-neo4py transition-colors"
           >
             Documentation
@@ -105,7 +105,7 @@ const NavBar = () => {
             Quick Start
           </a>
           <a
-            href="#docs"
+            href="/docs"
             className="text-base font-medium text-gray-800 hover:text-neo4py"
             onClick={() => setIsMobileMenuOpen(false)}
           >
