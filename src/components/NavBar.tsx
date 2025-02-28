@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -58,13 +57,7 @@ const NavBar = () => {
             Documentation
           </a>
           <a
-            href="#community"
-            className="text-sm font-medium text-gray-600 hover:text-neo4py transition-colors"
-          >
-            Community
-          </a>
-          <a
-            href="https://github.com"
+            href="https://github.com/Athar-Naveed/neo4py"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors 
@@ -118,15 +111,9 @@ const NavBar = () => {
           >
             Documentation
           </a>
+
           <a
-            href="#community"
-            className="text-base font-medium text-gray-800 hover:text-neo4py"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Community
-          </a>
-          <a
-            href="https://github.com"
+            href="https://github.com/Athar-Naveed/neo4py"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-md text-base font-medium 
