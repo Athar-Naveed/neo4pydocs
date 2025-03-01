@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,45 +27,45 @@ const NavBar = () => {
       }`}
     >
       <div className="neo4py-container flex items-center justify-between">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="text-xl md:text-2xl font-bold flex items-center space-x-2 transition-transform hover:scale-[1.01]"
         >
           <div className="h-8 w-8 bg-neo4py rounded-md flex items-center justify-center text-white font-mono tracking-tighter">
             n4
           </div>
           <span>neo4py</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a
-            href="#features"
+          <Link
+            to="#features"
             className="text-sm font-medium text-gray-600 hover:text-neo4py transition-colors"
           >
             Features
-          </a>
-          <a
-            href="#quickstart"
+          </Link>
+          <Link
+            to="#quickstart"
             className="text-sm font-medium text-gray-600 hover:text-neo4py transition-colors"
           >
             Quick Start
-          </a>
-          <a
-            href="/docs"
+          </Link>
+          <Link
+            to="/docs"
             className="text-sm font-medium text-gray-600 hover:text-neo4py transition-colors"
           >
             Documentation
-          </a>
-          <a
-            href="https://github.com/Athar-Naveed/neo4py"
+          </Link>
+          <Link
+            to="https://github.com/Athar-Naveed/neo4py"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors 
                     border border-neo4py/20 bg-neo4py/10 hover:bg-neo4py/20 text-neo4py-dark px-4 py-2"
           >
             GitHub
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -90,30 +91,30 @@ const NavBar = () => {
         }`}
       >
         <nav className="neo4py-container flex flex-col py-6 space-y-6">
-          <a
-            href="#features"
+          <Link
+            to="#features"
             className="text-base font-medium text-gray-800 hover:text-neo4py"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Features
-          </a>
-          <a
-            href="#quickstart"
+          </Link>
+          <Link
+            to="#quickstart"
             className="text-base font-medium text-gray-800 hover:text-neo4py"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Quick Start
-          </a>
-          <a
-            href="/docs"
+          </Link>
+          <Link
+            to="/docs"
             className="text-base font-medium text-gray-800 hover:text-neo4py"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Documentation
-          </a>
+          </Link>
 
-          <a
-            href="https://github.com/Athar-Naveed/neo4py"
+          <Link
+            to="https://github.com/Athar-Naveed/neo4py"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-md text-base font-medium 
@@ -121,7 +122,7 @@ const NavBar = () => {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             GitHub
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

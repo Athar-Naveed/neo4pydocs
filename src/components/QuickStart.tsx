@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CodeBlock from "./CodeBlock";
 
 const installCode = `# Install using pip
@@ -88,13 +89,13 @@ const QuickStart = () => {
             </div>
 
             <div className="text-center mt-10">
-              <a
-                href="/docs"
+              <Link
+                to="/docs"
                 className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors 
                   border border-neo4py hover:bg-neo4py hover:text-white text-neo4py"
               >
                 Read the full documentation
-              </a>
+              </Link>
             </div>
           </div>
         </div>

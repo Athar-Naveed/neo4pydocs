@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -28,21 +29,21 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-delay-3">
-            <a
-              href="#quickstart"
+            <Link
+              to="#quickstart"
               className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-base font-medium transition-all 
                 bg-neo4py hover:bg-neo4py-dark text-white w-full sm:w-auto"
             >
               Get Started
               <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="/docs"
+            </Link>
+            <Link
+              to="/docs"
               className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium transition-colors 
                 border border-neo4py/20 bg-neo4py/10 hover:bg-neo4py/20 text-neo4py-dark w-full sm:w-auto"
             >
               Documentation
-            </a>
+            </Link>
           </div>
         </div>
       </div>

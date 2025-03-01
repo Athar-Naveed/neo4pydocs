@@ -1,4 +1,5 @@
-import { Github, Twitter } from "lucide-react";
+import { Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,36 +9,27 @@ const Footer = () => {
       <div className="neo4py-container py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center space-x-2 mb-4">
+            <Link to="/" className="flex items-center space-x-2 mb-4">
               <div className="h-8 w-8 bg-neo4py rounded-md flex items-center justify-center text-white font-mono tracking-tighter">
                 n4
               </div>
               <span className="text-xl font-bold">neo4py</span>
-            </a>
+            </Link>
             <p className="text-muted-foreground max-w-md">
               A modern, intuitive Python library for interacting with Neo4j
               graph databases. Build powerful graph applications with minimal
               effort.
             </p>
             <div className="flex space-x-4 mt-4">
-              <a
-                href="https://github.com"
+              <Link
+                to="https://github.com/Athar-Naveed/neo4py"
                 className="text-gray-500 hover:text-neo4py"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                className="text-gray-500 hover:text-neo4py"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
           </div>
 
