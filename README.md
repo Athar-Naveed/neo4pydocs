@@ -76,7 +76,3 @@ And get all nodes instantly!
 - Saves time by automating common graph operations
 
 🚀 **Neo4py** – Making Graph Databases **Faster, Easier, and Smarter**!
-
----
-
-Does this align with your vision for **neo4py**? Let me know if you want any refinements! 🚀
