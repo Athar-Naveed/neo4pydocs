@@ -27,7 +27,7 @@ const NavBar = () => {
     >
       <div className="neo4py-container flex items-center justify-between">
         <a
-          href="#"
+          href="/"
           className="text-xl md:text-2xl font-bold flex items-center space-x-2 transition-transform hover:scale-[1.01]"
         >
           <div className="h-8 w-8 bg-neo4py rounded-md flex items-center justify-center text-white font-mono tracking-tighter">

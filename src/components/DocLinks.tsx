@@ -1,14 +1,5 @@
-
 import { stateStore } from "@/store/zuStore";
-import {
-  FileText,
-  BookOpen,
-  Code,
-  PenTool,
-  Layers,
-  HelpCircle,
-  ArrowUpRight,
-} from "lucide-react";
+import { BookOpen, GitGraph, Snail } from "lucide-react";
 
 const documentationLinks = [
   {
@@ -18,35 +9,17 @@ const documentationLinks = [
     href: "#introduction",
   },
   {
-    icon: <Code className="h-5 w-5" />,
-    title: "API Reference",
+    icon: <GitGraph className="h-5 w-5" />,
+    title: "Graph",
+    description: "Write your own Neo4j query using Graph class.",
+    href: "#graph",
+  },
+  {
+    icon: <Snail className="h-5 w-5" />,
+    title: "Sloth",
     description:
-      "Complete API documentation with examples and type definitions.",
-    href: "#api-reference",
-  },
-  {
-    icon: <FileText className="h-5 w-5" />,
-    title: "Guides",
-    description: "Step-by-step tutorials for common Neo4py use cases.",
-    href: "#guides",
-  },
-  {
-    icon: <PenTool className="h-5 w-5" />,
-    title: "Query Building",
-    description: "Learn to construct and optimize Neo4j queries in Python.",
-    href: "#query-building",
-  },
-  {
-    icon: <Layers className="h-5 w-5" />,
-    title: "Data Modeling",
-    description: "Best practices for designing your graph database schema.",
-    href: "#data-modeling",
-  },
-  {
-    icon: <HelpCircle className="h-5 w-5" />,
-    title: "Troubleshooting",
-    description: "Common issues and their solutions when working with Neo4py.",
-    href: "#troubleshooting",
+      "You are a Sloth? No worries neo4py's Sloth class got you covered.",
+    href: "#sloth",
   },
 ];
 
@@ -57,9 +30,10 @@ const DocLinks = () => {
     <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
       <h2 className="text-xl font-bold text-gray-800 mb-4">Documentation</h2>
       <p className="text-gray-600 mb-6">
-        Everything you need to know about Neo4py from basic concepts to advanced techniques.
+        Everything you need to know about Neo4py from basic concepts to advanced
+        techniques.
       </p>
-      
+
       <div className="space-y-2">
         {documentationLinks.map((link, index) => (
           <a
@@ -76,17 +50,16 @@ const DocLinks = () => {
             }}
           >
             <div
-              className={activeSection === link.href.replace("#", "")
-                ? "text-neo4py"
-                : "text-gray-500"
+              className={
+                activeSection === link.href.replace("#", "")
+                  ? "text-neo4py"
+                  : "text-gray-500"
               }
             >
               {link.icon}
             </div>
             <div>
-              <h3 className="text-base font-medium">
-                {link.title}
-              </h3>
+              <h3 className="text-base font-medium">{link.title}</h3>
             </div>
           </a>
         ))}

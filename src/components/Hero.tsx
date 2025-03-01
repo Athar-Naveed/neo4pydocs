@@ -11,7 +11,7 @@ const Hero = () => {
 
       <div className="neo4py-container">
         <div className="text-center mx-auto max-w-3xl">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-neo4py-super-light border border-neo4py/20 text-neo4py-dark text-sm font-medium mb-6 opacity-0 animate-fade-in">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-neo4py-super-light border border-neo4py/20 text-neo4py-dark text-sm font-medium mb-6 opacity-1 animate-fade-in">
             <span>Neo4j + Python = Neo4py</span>
           </div>
 
